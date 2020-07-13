@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header">
+
+</head>
+
+<body>
+<div th:replace="common/header :: navbar"></div>
+
+<div class="container">
+    <div class="row" style="margin-bottom: -100px">
+        <div class="col-8">
+            <h2 class="section-headline"><span>User Account</span></h2>
+            <!--z-index to set the layer of the image-->
+            <hr style="position: absolute; width:100%; height:6px; background-color: #333; z-index:-1;margin-top: -15px"/>
+        </div>
+        <div class="col-4">
+            <img src="/image/logo.png" class="img-fluid"/>
+        </div>
+    </div>
+    <img class="img-fluid" src="/image/wooden-texture-background.png" style="margin-top: -30px"/>
+
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-9 col-offset-3">
+
+            <!--Nav Tabs-->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-toggle="tab" href="#login" role="tab" th:classappend="${classActiveLogin}? 'active'"><span
+                            style="color:red">Login</span></a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-toggle="tab" href="#new" role="tab"><span style="color:red">Create new account</span></a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-toggle="tab" href="#forgot" role="tab"><span style="color:red">Forgot Password</span></a>
+                </li>
+            </ul>
+
+            <!--Tab panels-->
+            <div class="tab-content">
+                <!--login-->
+                <div class="tab-pane fade" id="login" role="tabpanel" th:classappend="${classActiveLogin}? 'show active'">
+                    <div class="card">
+                        <div class="card-body" style="background-color: #ededed; margin-top:20px">
+                            <form>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input required="required" type="text" class="form-control" id="username"
+                                           name="username"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input required="required" type="pasword" class="form-control" id="password"
+                                           name="password"/>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--new account-->
+                <div class="tab-pane fade" id="new" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body" style="background-color: #ededed; margin-top:20px">
+                            <form>
+                                <div class="form-group">
+                                    <label for="newUsername">* Username</label>
+                                    <input required="required" type="text" class="form-control" id="newUsername"
+                                           name="username"/>
+                                    <p style="corlor:828282">Enter your username here.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">* Email Address</label>
+                                    <input required="required" type="text" class="form-control" id="email"
+                                           name="email"/>
+                                    <p style="corlor:828282">A valid email address. All emails from the system will be
+                                        sent to this address. The email address is not made public and will only be used
+                                        if you wish to receive a new password or wish to receive certain
+                                        notification.</p>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create new account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--forgot password-->
+                <div class="tab-pane fade" id="forgot" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body" style="background-color: #ededed; margin-top:20px">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recoverEmail">* Your Email: </label>
+                                    <input required="required" type="text" class="form-control" id="recoverEmail"
+                                           name="email"/>
+                                    <p style="corlor:828282">Enter your registered email address here.</p>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><!--end of container-->
+
+
+<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

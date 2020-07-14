@@ -1,4 +1,8 @@
 package com.jm.bookstore.repository;
 
-public interface RoleRepository {
+import com.jm.bookstore.model.security.Role;
+import org.springframework.data.repository.CrudRepository;
+
+public interface RoleRepository extends CrudRepository<Role, Long> {
+    Role findByName(String name);
 }
